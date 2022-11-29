@@ -1,0 +1,20 @@
+{
+  "deployer": {
+    "type": "Gateway",
+    "options": {
+      "conn": {
+        "server": "http://192.168.67.190:8001",
+        "client": "310"
+      },
+      "ui5": {
+        "language": "EN",
+        "package": "Z001",
+        "bspcontainer": "zfioritest0001",
+        "bspcontainer_text": "input",
+        "calc_appindex": true,
+        "transportno": "S4DK926983",
+        "user": ""
+      }
+    }
+  }
+}

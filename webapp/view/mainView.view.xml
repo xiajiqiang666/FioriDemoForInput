@@ -1,0 +1,164 @@
+<mvc:View controllerName="zfioritest0001.controller.mainView" xmlns:mvc="sap.ui.core.mvc" xmlns:t="sap.ui.table" xmlns:core="sap.ui.core" displayBlock="true" xmlns="sap.m">
+    <Page id="page" title="{i18n>title}" class="sapUiContentPadding">
+        <content>
+            <Panel expandable="true" expanded="true">
+                <sap.ui.layout.form:Form xmlns:sap.ui.layout.form="sap.ui.layout.form" editable="true" id="__form0">
+                    <sap.ui.layout.form:formContainers>
+                        <sap.ui.layout.form:FormContainer id="__container5" expandable="true" title="表单">
+                            <sap.ui.layout.form:formElements>
+                                <sap.ui.layout.form:FormElement label="订单类型" id="__element0">
+                                    <sap.ui.layout.form:fields>
+                                        <Input width="100%" id="__input0" textFormatMode="KeyValue" liveChange="onChange" showValueHelp="true" valueHelpRequest="onValueHelp" showSuggestion="true" suggestionRows="{/HTvakSet}" suggestionItemSelected=".onSuggestionItemSelected">
+                                            <suggestionColumns>
+                                                <Column popinDisplay="Inline" demandPopin="true">
+                                                    <Label text="订单类型" />
+                                                </Column>
+                                                <Column popinDisplay="Inline" demandPopin="true">
+                                                    <Label text="订单类型描述" />
+                                                </Column>
+                                            </suggestionColumns>
+                                            <suggestionRows>
+                                                <ColumnListItem>
+                                                    <Label text="{Auart}" />
+                                                    <Label text="{Bezei}" />
+                                                </ColumnListItem>
+                                            </suggestionRows>
+                                        </Input>
+                                    </sap.ui.layout.form:fields>
+                                </sap.ui.layout.form:FormElement>
+                                <sap.ui.layout.form:FormElement label="目的港" id="__element1">
+                                    <sap.ui.layout.form:fields>
+                                        <Input width="100%" id="__input1" textFormatMode="KeyValue" showValueHelp="true" valueHelpRequest="onValueHelp" showSuggestion="true" suggestionRows="{/ZrashMdgSet}" suggestionItemSelected=".onSuggestionItemSelected">
+                                            <suggestionColumns>
+                                                <Column popinDisplay="Inline" demandPopin="true">
+                                                    <Label text="目的港" />
+                                                </Column>
+                                                <Column popinDisplay="Inline" demandPopin="true">
+                                                    <Label text="目的港描述" />
+                                                </Column>
+                                            </suggestionColumns>
+                                            <suggestionRows>
+                                                <ColumnListItem>
+                                                    <Label text="{Kvgr1}" />
+                                                    <Label text="{Bezei}" />
+                                                </ColumnListItem>
+                                            </suggestionRows>
+                                        </Input>
+                                    </sap.ui.layout.form:fields>
+                                </sap.ui.layout.form:FormElement>
+                                <sap.ui.layout.form:FormElement label="起运港" id="__element2">
+                                    <sap.ui.layout.form:fields>
+                                        <Input width="100%" id="__input2" textFormatMode="KeyValue" showValueHelp="true" valueHelpRequest="onValueHelp" showSuggestion="true" suggestionRows="{/ZrashQygSet}" suggestionItemSelected=".onSuggestionItemSelected">
+                                            <suggestionColumns>
+                                                <Column popinDisplay="Inline" demandPopin="true">
+                                                    <Label text="起运港" />
+                                                </Column>
+                                                <Column popinDisplay="Inline" demandPopin="true">
+                                                    <Label text="起运港描述" />
+                                                </Column>
+                                            </suggestionColumns>
+                                            <suggestionRows>
+                                                <ColumnListItem>
+                                                    <Label text="{Kvgr2}" />
+                                                    <Label text="{Bezei}" />
+                                                </ColumnListItem>
+                                            </suggestionRows>
+                                        </Input>
+                                    </sap.ui.layout.form:fields>
+                                </sap.ui.layout.form:FormElement>
+                                <sap.ui.layout.form:FormElement label="客户编码" id="__element3">
+                                    <sap.ui.layout.form:fields>
+                                        <Input width="100%" id="__input3" textFormatMode="KeyValue" showValueHelp="true" valueHelpRequest="onValueHelp" showSuggestion="true" suggestionRows="{/ZrashKunnrSet}" suggestionItemSelected=".onSuggestionItemSelected">
+                                            <suggestionColumns>
+                                                <Column popinDisplay="Inline" demandPopin="true">
+                                                    <Label text="客户编码" />
+                                                </Column>
+                                                <Column popinDisplay="Inline" demandPopin="true">
+                                                    <Label text="客户名称" />
+                                                </Column>
+                                            </suggestionColumns>
+                                            <suggestionRows>
+                                                <ColumnListItem>
+                                                    <Label text="{Kunnr}" />
+                                                    <Label text="{Name1}" />
+                                                </ColumnListItem>
+                                            </suggestionRows>
+                                        </Input>
+                                    </sap.ui.layout.form:fields>
+                                </sap.ui.layout.form:FormElement>
+                            </sap.ui.layout.form:formElements>
+                        </sap.ui.layout.form:FormContainer>
+                        <sap.ui.layout.form:FormContainer id="__container4" />
+                    </sap.ui.layout.form:formContainers>
+                    <sap.ui.layout.form:layout>
+                        <sap.ui.layout.form:ResponsiveGridLayout id="__layout0" labelSpanL="3" labelSpanM="1" emptySpanL="1" emptySpanM="1" columnsL="2" columnsM="1" />
+                    </sap.ui.layout.form:layout>
+                </sap.ui.layout.form:Form>
+            </Panel>
+            <Panel expandable="true" expanded="true">
+                <t:Table id="__table0" rows="{/soItem}" selectionMode="MultiToggle" visibleRowCount="6" alternateRowColors="true" enableCellFilter="true" enableColumnFreeze="true" enableGrouping="true" fixedColumnCount="1">
+                    <t:extension>
+                        <OverflowToolbar>
+                            <Button text="查询" icon="sap-icon://query" press="onQuery" />
+                            <ToolbarSpacer />
+                            <ToolbarSpacer />
+                            <Button text="编辑" icon="sap-icon://edit" press="onEdit" />
+                            <Button text="新建" icon="sap-icon://add" press="onNew" />
+                            <Button text="复制行" icon="sap-icon://copy" press="onCopy" />
+                            <Button text="删除 " icon="sap-icon://delete" press="onDelete" />
+                            <Button text="导出" icon="sap-icon://excel-attachment" press="onDataExport" />
+                        </OverflowToolbar>
+                    </t:extension>
+                    <t:columns>
+                        <t:Column filterProperty="Vbeln" sortProperty="Vbeln" autoResizable="true">
+                            <Text text="销售订单" />
+                            <t:template>
+                                <!-- <Input value="{Vbeln}" editable="false" /> -->
+                                <Text text="{Vbeln}" wrapping="false" />
+                            </t:template>
+                        </t:Column>
+                        <t:Column filterProperty="Kunnr" autoResizable="true">
+                            <Text text="客户" />
+                            <t:template>
+                                <Input value="{Kunnr}" />
+                            </t:template>
+                        </t:Column>
+                        <t:Column filterProperty="Auart" autoResizable="true">
+                            <Text text="订单类型" />
+                            <t:template>
+                                <Input value="{Auart}" textFormatMode="KeyValue" showValueHelp="true" valueHelpRequest="onValueHelp" showSuggestion="true" suggestionRows="{/HTvakSet}" suggestionItemSelected=".onSuggestionItemSelected">
+                                    <suggestionColumns>
+                                        <Column popinDisplay="Inline" demandPopin="true">
+                                            <Label text="订单类型" />
+                                        </Column>
+                                        <Column popinDisplay="Inline" demandPopin="true">
+                                            <Label text="订单类型描述" />
+                                        </Column>
+                                    </suggestionColumns>
+                                    <suggestionRows>
+                                        <ColumnListItem>
+                                            <Label text="{Auart}" />
+                                            <Label text="{Bezei}" />
+                                        </ColumnListItem>
+                                    </suggestionRows>
+                                </Input>
+                            </t:template>
+                        </t:Column>
+                        <t:Column filterProperty="Erdat" autoResizable="true">
+                            <Text text="创建日期" />
+                            <t:template>
+                                <Label text="{Erdat}" />
+                            </t:template>
+                        </t:Column>
+                        <t:Column filterProperty="Kunwe_ana" autoResizable="true">
+                            <Text text="送达方" />
+                            <t:template>
+                                <Input value="{Kunwe_ana}" />
+                            </t:template>
+                        </t:Column>
+                    </t:columns>
+                </t:Table>
+            </Panel>
+        </content>
+    </Page>
+</mvc:View>
