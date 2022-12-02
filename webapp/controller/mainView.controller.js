@@ -1,12 +1,13 @@
 sap.ui.define([
     "./BaseController",
     "sap/ui/model/json/JSONModel",
-    'sap/base/util/deepExtend'
+    "sap/base/util/deepExtend",
+    "sap/ui/core/util/ExportTypeCSV"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (BaseController, JSONModel, deepExtend) {
+    function (BaseController, JSONModel, deepExtend, ExportTypeCSV) {
         "use strict";
 
         return BaseController.extend("zfioritest0001.controller.App", {
@@ -108,7 +109,7 @@ sap.ui.define([
                 this.rebindTable("mTable", this.oEditableTemplate, "Edit");
             },
             //--点击显示按钮
-            onDiaplaytm: function () {
+            onDiaplaym: function () {
                 this._JSONModel.setProperty("/mTable", { edit: false, display: true });
                 this.rebindTable("mTable", this.oReadOnlyTemplate, "Navigation");
             },
@@ -121,5 +122,75 @@ sap.ui.define([
                     key: "Vbeln"
                 }).setKeyboardMode(sKeyboardMode);
             },
+            //--导出
+            onDataExport: function () {
+                var oContext = this;
+                var oExport = new sap.ui.core.util.Export({
+                    exportType: new ExportTypeCSV({
+                        separatorChar: ",",
+                        charset: "utf-8"
+                    }),
+                    models: oContext.getModel(),
+                    // 生成csv文件
+                    rows: {
+                        path: "/soItem"  //报表所绑定的行
+                    },
+                    columns: [
+                        {
+                            name: "销售订单号",
+                            template: {
+                                content: "{Vbeln}"
+                            }
+                        },
+                        {
+                            name: "客户",
+                            template: {
+                                content: "{Kunnr}"
+                            }
+                        },
+                        {
+                            name: "订单类型",
+                            template: {
+                                content: "{Auart}"
+                            }
+                        },
+                        {
+                            name: "创建日期",
+                            template: {
+                                content: "{Erdat}"
+                            }
+                        },
+                        {
+                            name: "送达方",
+                            template: {
+                                content: "{Kunwe_ana}"
+                            }
+                        }
+                    ]
+                });
+                // download exported file
+                oExport.saveFile("导出清单").catch(function (oError) {
+                    messages.showWarning("Error when downloading data. Browser might not be supported!\n\n" + oError);
+                }).then(function () {
+                    oExport.destroy();
+                });
+            },
+            //--打印
+            onPrint: function () {
+                var html = '<!DOCTYPE html><html><head><meta charset="utf-8"><title>PrintResult</title></head><body><H5 align="center">销售订单清单</H5><table border="solid" width="500px" style="border-collapse: collapse">';
+                var table = this._JSONModel.getProperty("/soItem");
+                for (var i in table) {
+                    html = html + '<tr><td align="center">' + table[i].Vbeln + '</td>'
+                        + '<td align="center">' + table[i].Kunnr + '</td>'
+                        + '<td align="center">' + table[i].Auart + '</td></tr>'
+                }
+                html = html + '</table></body></html>';
+                var wind = window.open("", "PrintWindow");
+                if (wind !== undefined) {
+                    wind.document.write(html);
+                }
+                // Creating a small time delay so that the layout renders
+                wind.print();
+            }
         });
     });

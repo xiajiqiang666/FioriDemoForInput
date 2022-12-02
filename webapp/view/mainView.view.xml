@@ -104,10 +104,8 @@
                             <ToolbarSpacer />
                             <Button text="编辑" visible="{/uiTable/display}" icon="sap-icon://edit" type="Transparent" press="onEdit" />
                             <Button text="显示" visible="{/uiTable/edit}" icon="sap-icon://display" type="Transparent" press="onDisplay" />
-                            <Button text="新建行" visible="{/uiTable/edit}" icon="sap-icon://add" type="Transparent" press="onNew" />
-                            <Button text="复制行" visible="{/uiTable/edit}" icon="sap-icon://copy" type="Transparent" press="onCopy" />
-                            <Button text="删除行" visible="{/uiTable/edit}" icon="sap-icon://delete" type="Transparent" press="onDelete" />
                             <Button text="导出" icon="sap-icon://excel-attachment" type="Transparent" press="onDataExport" />
+                            <Button text="打印" icon="sap-icon://print" type="Transparent" press="onPrint" />
                         </OverflowToolbar>
                     </t:extension>
                     <t:columns>
@@ -168,10 +166,6 @@
                             <ToolbarSpacer />
                             <Button text="编辑" visible="{/mTable/display}" icon="sap-icon://edit" type="Transparent" press="onEditm" />
                             <Button text="显示" visible="{/mTable/edit}" icon="sap-icon://display" type="Transparent" press="onDisplaym" />
-                            <Button text="新建行" visible="{/mTable/edit}" icon="sap-icon://add" type="Transparent" press="onNewm" />
-                            <Button text="复制行" visible="{/mTable/edit}" icon="sap-icon://copy" type="Transparent" press="onCopym" />
-                            <Button text="删除行 " visible="{/mTable/edit}" icon="sap-icon://delete" type="Transparent" press="onDeletem" />
-                            <Button text="导出" icon="sap-icon://excel-attachment" type="Transparent" press="onDataExportm" />
                         </OverflowToolbar>
                     </headerToolbar>
                     <columns>
